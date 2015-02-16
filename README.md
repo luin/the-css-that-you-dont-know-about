@@ -20,3 +20,4 @@
 15. organize css rules
 16. http://alistapart.com/blog/post/style-guide-generator-roundup
 17. CSS game: http://jsfiddle.net/4cyb0qzk/
+18. Vertical align anything with just 3 lines of CSS: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
