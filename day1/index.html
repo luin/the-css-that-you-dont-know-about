@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<title>你不知道的CSS</title>
-	</head>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>你不知道的CSS</title>
+</head>
 <body>
 
-<h1>你不知道的CSS</h1>
+<div class="wrap">
+  <h1>你不知道的CSS</h1>
 
-<h2>第一天：等比例缩放的盒子</h2>
+  <h2>第一天：等比例缩放的盒子</h2>
 
-<p>你肯定已经知道，对于一个 img 元素而言，你可以单独地修改它的 <code>width</code> 或者 <code>height</code> 属性来设置它的大小，同时图片的比例还能够保持不变。</p>
+  <p>你肯定已经知道，对于一个 img 元素而言，你可以单独地修改它的 <code>width</code> 或者 <code>height</code> 属性来设置它的大小，同时图片的比例还能够保持不变。</p>
 
-<p>如下图所示，最上面是原始大小的图片，下面两张则分别是设置了 <code>width: 50%</code> 和 <code>height: 50%</code> 属性后的样子。</p>
+  <p>如下图所示，最上面是原始大小的图片，下面两张则分别是设置了 <code>width: 50%</code> 和 <code>height: 50%</code> 属性后的样子。</p>
 
-<figure><img src="1.jpg"/></figure>
+  <figure><img src="1.jpg"/></figure>
 
-<p>可以看到把宽度设置为了原来的一半的同时，图片的高度并不是保持原来的大小，而是相应的也变成了原来的一半，使得图片仍能够保持原有的比例。同理把高度设成原来的一半也如此。</p>
+  <p>可以看到把宽度设置为了原来的一半的同时，图片的高度并不是保持原来的大小，而是相应的也变成了原来的一半，使得图片仍能够保持原有的比例。同理把高度设成原来的一半也如此。</p>
 
-<p>作为对照，我们看看单独修改其他元素的宽和高会产生什么样的效果：</p>
+  <p>作为对照，我们看看单独修改其他元素的宽和高会产生什么样的效果：</p>
 
-<figure><img src="2.jpg"/></figure>
+  <figure><img src="2.jpg"/></figure>
 
-<p>上图最左边的蓝色矩形是原始的 div 元素，之后两个分别是对其设置了 <code>width: 50%</code> 和 <code>height: 50%</code> 属性后的样子。可见与 img 元素不同，单独设置 div 元素的宽度（高度）时，对应的高度（宽度）并不会改变，从而导致元素的比例发生变化。这一结果相信每个稍微对前端有些了解的同学都能猜到。但是究竟是什么导致了同样的属性用于 img 和 div 后会产生不同的结果呢？</p>
+  <p>上图最左边的蓝色矩形是原始的 div 元素，之后两个分别是对其设置了 <code>width: 50%</code> 和 <code>height: 50%</code> 属性后的样子。可见与 img 元素不同，单独设置 div 元素的宽度（高度）时，对应的高度（宽度）并不会改变，从而导致元素的比例发生变化。这一结果相信每个稍微对前端有些了解的同学都能猜到。但是究竟是什么导致了同样的属性用于 img 和 div 后会产生不同的结果呢？</p>
 
-<p>img 在元素分类中属于 replaced （被替换的）元素。replaced 元素表示这个元素内容的显示不是由 CSS 控制的。换句话说，对于 img 元素而言，图片的内容并不是由 CSS 定义的，而是通过其 <code>src</code> 属性指向的资源决定的。很多 replaced 元素来都会有自己的固有尺寸（Intrinsic dimension），img 也不例外<sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup>。当 img 的高度改变后，浏览器会计算出其缩放比例，而当元素的宽度是 <code>auto</code>（即默认值）时，浏览器则以<code>原始宽度 * 缩放比例</code>来作为元素的新宽度。从而使得 img 元素的比例始终保持一致。</p>
+  <p>img 在元素分类中属于 replaced （被替换的）元素。replaced 元素表示这个元素内容的显示不是由 CSS 控制的。换句话说，对于 img 元素而言，图片的内容并不是由 CSS 定义的，而是通过其 <code>src</code> 属性指向的资源决定的。很多 replaced 元素来都会有自己的固有尺寸（Intrinsic dimension），img 也不例外<sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup>。当 img 的高度改变后，浏览器会计算出其缩放比例，而当元素的宽度是 <code>auto</code>（即默认值）时，浏览器则以<code>原始宽度 * 缩放比例</code>来作为元素的新宽度。从而使得 img 元素的比例始终保持一致。</p>
 
-<p>然而这都并不是这篇文章讨论的重点。（那位同学请不要说脏话，不文明</p>
+  <p>然而这都并不是这篇文章讨论的重点。（那位同学请不要说脏话，不文明</p>
 
-<p>重点是什么？重点就是题目：实现等比例缩放的盒子。</p>
+  <p>重点是什么？重点就是题目：实现等比例缩放的盒子。</p>
 
-<p>在响应式设计逐渐成为主流的今天，流式布局这个词即使放在一两年前也绝算不得是个新鲜词汇。下面是一个布局实例：</p>
+  <p>在响应式设计逐渐成为主流的今天，流式布局这个词即使放在一两年前也绝算不得是个新鲜词汇。下面是一个布局实例：</p>
 
-<figure><img src="3.png"/></figure>
+  <figure><img src="3.png"/></figure>
 
-<p>上图中每个蓝色的矩形分别对应一个 div 元素，每个元素的宽度占窗口宽度的四分之一（图示中为了演示方便给每个元素加了边距效果）。如果不做额外处理，当窗口宽度变小时上图的页面会变为如下所示：</p>
+  <p>上图中每个蓝色的矩形分别对应一个 div 元素，每个元素的宽度占窗口宽度的四分之一（图示中为了演示方便给每个元素加了边距效果）。如果不做额外处理，当窗口宽度变小时上图的页面会变为如下所示：</p>
 
-<figure><img src="4.png"/></figure>
+  <figure><img src="4.png"/></figure>
 
-<p>可见每个元素的宽度进行了缩放，但高度并没有变化，看起来并不是很协调。所以有些场景下我们需要实现当窗口宽度缩放时，使得元素宽度自适应的同时，<strong>保证每个元素的宽高比例不变</strong>。</p>
+  <p>可见每个元素的宽度进行了缩放，但高度并没有变化，看起来并不是很协调。所以有些场景下我们需要实现当窗口宽度缩放时，使得元素宽度自适应的同时，<strong>保证每个元素的宽高比例不变</strong>。</p>
 
-<p>很多同学在我话还没讲完时，就已经纷纷掏出 JavaScript 大锤着手实现了起来。然而这本书的标题是《你不知道的 CSS》，自然不会介绍 CSS 实现不了这种打自己脸的需求，而且就此例而言，使用 JavaScript 实现效果并不好，绑定 <code>onresize</code> 事件后在拖拽时某些星座的朋友会察觉出来些许卡顿（你试试便知），而且在 JavaScript 加载完成前是看不出效果的。</p>
+  <p>很多同学在我话还没讲完时，就已经纷纷掏出 JavaScript 大锤着手实现了起来。然而这本书的标题是《你不知道的 CSS》，自然不会介绍 CSS 实现不了这种打自己脸的需求，而且就此例而言，使用 JavaScript 实现效果并不好，绑定 <code>onresize</code> 事件后在拖拽时某些星座的朋友会察觉出来些许卡顿（你试试便知），而且在 JavaScript 加载完成前是看不出效果的。</p>
 
-<p>其实用 CSS 可以很容易地实现这样的效果，用的属性也是我们每个工作日和周末（如果加班的话）都会用到的：<code>padding-bottom</code>。<code>padding-bottom</code> 有一个让人很容易忽略的特性是当它的值是百分比形式时，百分比的基数是其所在元素的父元素的宽度而不是高度（同 <code>padding-left</code> 和 <code>padding-right</code> 一样）。这样解决方案也就非常明显了：</p>
+  <p>其实用 CSS 可以很容易地实现这样的效果，用的属性也是我们每个工作日和周末（如果加班的话）都会用到的：<code>padding-bottom</code>。<code>padding-bottom</code> 有一个让人很容易忽略的特性是当它的值是百分比形式时，百分比的基数是其所在元素的父元素的宽度而不是高度（同 <code>padding-left</code> 和 <code>padding-right</code> 一样）。这样解决方案也就非常明显了：</p>
 
-<ol>
-	<li>将元素的 <code>height</code> 设成 <code>0</code>，使得元素的高度等于 <code>padding-bottom</code>；</li>
-	<li>合理设置 <code>padding-bottom</code> 的值。比如每个元素的 <code>width</code> 是 <code>25%</code>，现在想让元素的高度始终保持为其宽度的两倍，则 <code>padding-bottom</code> 的值应该设置为 <code>50%</code>。</li>
-</ol>
+  <ol>
+    <li>将元素的 <code>height</code> 设成 <code>0</code>，使得元素的高度等于 <code>padding-bottom</code>；</li>
+    <li>合理设置 <code>padding-bottom</code> 的值。比如每个元素的 <code>width</code> 是 <code>25%</code>，现在想让元素的高度始终保持为其宽度的两倍，则 <code>padding-bottom</code> 的值应该设置为 <code>50%</code>。</li>
+  </ol>
 
-<p>结果如下图所示：</p>
+  <p>结果如下图所示：</p>
 
-<figure><img src="5.png"/></figure>
+  <figure><img src="5.png"/></figure>
 
-<p>相应的代码可以参见：<a href="http://jsfiddle.net/luin/25BbH/7/">http://jsfiddle.net/luin/25BbH/7/</a>。</p>
+  <p>相应的代码可以参见：<a href="http://jsfiddle.net/luin/25BbH/7/">http://jsfiddle.net/luin/25BbH/7/</a>。</p>
 
-<p>然而至此，这篇文章还没完。肯定会有很多同学疑惑既然 <code>height</code> 被设成了 <code>0</code>，那么如果元素的 <code>overflow</code> 为 <code>hidden</code>，里面的文字会不会因为超出了元素高度而被隐藏呢？</p>
+  <p>然而至此，这篇文章还没完。肯定会有很多同学疑惑既然 <code>height</code> 被设成了 <code>0</code>，那么如果元素的 <code>overflow</code> 为 <code>hidden</code>，里面的文字会不会因为超出了元素高度而被隐藏呢？</p>
 
-<p>答案是不会。根据 CSS 2.1 规范（<a href="http://www.w3.org/TR/CSS2/visufx.html">http://www.w3.org/TR/CSS2/visufx.html</a>），<code>overflow</code> 只会对处于 padding edge 外面的内容生效，即只有超出了 padding 区域的内容才会被 <code>overflow</code> 属性隐藏掉。</p>
+  <p>答案是不会。根据 CSS 2.1 规范（<a href="http://www.w3.org/TR/CSS2/visufx.html">http://www.w3.org/TR/CSS2/visufx.html</a>），<code>overflow</code> 只会对处于 padding edge 外面的内容生效，即只有超出了 padding 区域的内容才会被 <code>overflow</code> 属性隐藏掉。</p>
 
-<ol id="footnotes">
-	<li id="fn1">其实有一点例外的情况是当 img 的图片是 svg 时，它是没有固有尺寸的。 <a href="#ffn1">&#8617;</a></li>
-</ol></body>
+  <ol id="footnotes">
+    <li id="fn1">其实有一点例外的情况是当 img 的图片是 svg 时，它是没有固有尺寸的。 <a href="#ffn1">&#8617;</a></li>
+  </ol>
+</div>
+</body>
 </html>
