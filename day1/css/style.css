@@ -1,0 +1,189 @@
+/*
+
+	Demo css to show basic, blog-like styling
+
+	Visit http://www.ulyssesapp.com/styles for full reference
+
+*/
+
+
+
+body {
+  text-align: justify; 
+  color:#000; 
+  font-family: "Lantinghei SC","Heiti SC","Microsoft YaHei","lucida grande","lucida sans unicode",lucida,"Helvetica Neue",helvetica,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+  font-size:16px; 
+  line-height:1.8;
+  margin:0; 
+  padding:2em 2em 5em; 
+  background:rgb(253, 253, 253);
+  margin:auto;
+/*  max-width:37em;*/
+  color:rgb(10, 10, 10);
+  } 
+
+/*strong { font-weight: 900; }*/
+
+a {outline:none !important; font-weight:bold; text-decoration:none;}
+a:link {color:#c00;}
+a:visited {color:#606;}
+a:hover {color:#606;}
+a:active {color:#900; outline:none;}
+
+
+/* h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;} */
+h1, h2, h3, h4, h5, h6 {font-weight:bold;color:#111;}
+
+h1 {
+  font-family:"楷体","楷体_GB2312","KaiTi","Kaiti SC","BiauKai",Georgia,"Times New Roman",Times,serif; 
+  font-size:3em;line-height:1;margin-bottom:0.5em;margin-top:2em;
+  text-align: center; 
+}
+
+h2 {
+  font-family:"楷体","楷体_GB2312","KaiTi","Kaiti SC","BiauKai",Georgia,"Times New Roman",Times,serif; 
+  font-size:2em;margin-bottom:0.75em;margin-top:1.5em;
+}
+
+h3 {
+  font-family:"楷体","楷体_GB2312","KaiTi","Kaiti SC","BiauKai",Georgia,"Times New Roman",Times,serif; 
+  font-size:1.7em;line-height:1;margin-top:1.5em;
+}
+
+h4 {
+  font-family: "Lantinghei SC","Heiti SC","Microsoft YaHei","lucida grande","lucida sans unicode",lucida,"Helvetica Neue",helvetica,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+  font-size:1.3em;font-weight:bold;line-height:1.25;margin-bottom:1.25em;
+}
+
+h5 {
+  font-family: "Lantinghei SC","Heiti SC","Microsoft YaHei","lucida grande","lucida sans unicode",lucida,"Helvetica Neue",helvetica,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+  font-size:1.2em;font-weight:bold;margin-bottom:1.5em;
+}
+
+h6 {
+  font-family: "Lantinghei SC","Heiti SC","Microsoft YaHei","lucida grande","lucida sans unicode",lucida,"Helvetica Neue",helvetica,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+  font-size:1.125em;font-weight:bold;
+}
+
+p {
+  text-indent: 2em;
+  text-align: justify; 
+  font-size:1.125em;
+  margin:1em 0 0;
+  margin-bottom: 1em;
+
+}
+
+/*
+h1 + p {
+  font-size:150%;
+  margin:1em 0;
+}
+*/
+
+p + p {
+    text-indent:2em;
+}
+
+h1 + p {
+  text-indent:2em;
+}
+
+p + ul, p + ol, p + dl {margin-bottom:1.5em;}
+
+figure {margin: 2em 0 1.5em 0;}
+figure img {width: 100%;border: 1px solid #ccc;}
+figcaption {font-size: 66%;padding: 1em; padding-top: 0.5em;color: #aaa;}
+
+blockquote {border-left:5px solid #999; background-color: #f6f6f6; padding:0.1em 1.5em 0.1em 1.5em; margin:1em 0; }
+blockquote p {text-indent: 0 !important; font-family:"Lantinghei SC","Heiti SC","Microsoft YaHei","lucida grande","lucida sans unicode",lucida,"Helvetica Neue",helvetica,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;}
+blockquote small {display:block; line-height:1.7em;}
+
+ul, ol, dl {
+  text-align: justify; 
+  }
+
+ul, ol {
+  margin-left:2em;
+  padding-left: 1.2em;
+}
+
+ul li, ol li {
+	padding-left: 0.3em;
+    margin-top: 0.6em;
+}
+
+li p {margin-top: 0px; text-indent: 0em;}
+li {margin-bottom: 0.6em;}
+
+code {font-family: Menlo, monospace; font-size:80%;}
+p > code {padding:0.2em 0.4em; background:#eee;}
+pre {text-align:left; overflow-x: scroll; background: #eee; padding: 10pt 20pt; border-radius: 5pt;}
+
+hr {border: 0px; border-top: 1px solid #ddd; border-bottom: 1px solid #fff;margin-top: 4em;margin-bottom: 2em;}
+
+h1 + hr {margin-top: 2em;}
+
+ol#footnotes { margin-top: 4.5em;border-top: 1px solid #eee; padding-top: 1em; font-size: 80%;padding-left: 1.5em;}
+
+ol#footnotes p {text-indent: 0px;}
+
+figure + p {
+	text-indent: 0em !important;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 100%;
+  font: inherit; }
+  table th {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    padding: 6px 13px; }
+  table td {
+    border: 1px solid #ccc;
+    padding: 6px 13px; }
+  table tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+
+
+@keyframes highfade {
+    0% {
+		background-color: none;
+    }
+    20% {
+		background-color: yellow;
+	}
+    100% {
+		background-color: none;
+    }
+}
+
+@-webkit-keyframes highfade {
+    0% {
+		background-color: none;
+    }
+    20% {
+		background-color: yellow;
+	}
+    100% {
+		background-color: none;
+    }
+}
+
+a:target, ol#footnotes li:target, sup a:target  {
+    animation-name: highfade;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-name: highfade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
