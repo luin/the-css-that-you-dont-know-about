@@ -14,12 +14,11 @@ body {
   font-family: "Lantinghei SC","Heiti SC","Microsoft YaHei","lucida grande","lucida sans unicode",lucida,"Helvetica Neue",helvetica,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
   font-size:16px; 
   line-height:1.8;
-  margin:0; 
   padding:2em 2em 5em; 
   background:rgb(253, 253, 253);
-  margin:auto;
-/*  max-width:37em;*/
   color:rgb(10, 10, 10);
+  max-width: 800px;
+  margin: 0 auto;
   } 
 
 /*strong { font-weight: 900; }*/
@@ -127,10 +126,6 @@ h1 + hr {margin-top: 2em;}
 ol#footnotes { margin-top: 4.5em;border-top: 1px solid #eee; padding-top: 1em; font-size: 80%;padding-left: 1.5em;}
 
 ol#footnotes p {text-indent: 0px;}
-
-figure + p {
-	text-indent: 0em !important;
-}
 
 table {
   border-collapse: collapse;
