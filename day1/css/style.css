@@ -42,6 +42,7 @@ h1 {
 h2 {
   font-family:"楷体","楷体_GB2312","KaiTi","Kaiti SC","BiauKai",Georgia,"Times New Roman",Times,serif; 
   font-size:2em;margin-bottom:0.75em;margin-top:1.5em;
+   text-align: center; 
 }
 
 h3 {
